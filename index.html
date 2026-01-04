@@ -6,7 +6,7 @@
     <title>GetReady | AI Food Vision</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
         .hero-section { padding: 60px 0; text-align: center; }
@@ -17,13 +17,16 @@
             padding: 40px;
             transition: 0.3s;
             cursor: pointer;
+            text-align: center;
         }
         .upload-card:hover { border-color: #38bdf8; background: #1e293b; }
-        .btn-getready { background-color: #38bdf8; color: #0f172a; font-weight: bold; border-radius: 10px; padding: 12px 30px; }
         .result-box { display: none; margin-top: 30px; background: #334155; border-radius: 15px; padding: 20px; }
         #preview-img { max-width: 100%; border-radius: 15px; margin-bottom: 20px; }
-        .status-ready { color: #4ade80; } /* Green */
- .tg-link {
+        .status-ready { color: #4ade80; } 
+
+        /* Стили для кнопки Telegram */
+        .tg-link-container { text-align: center; margin-top: 30px; }
+        .tg-link {
             display: inline-flex;
             align-items: center;
             background: #0088cc;
@@ -33,13 +36,13 @@
             text-decoration: none;
             font-weight: 700;
             transition: transform 0.2s, background 0.2s;
-            margin-top: 20px;
         }
         .tg-link:hover {
             background: #0077b5;
             transform: translateY(-2px);
         }
-        .tg-link i { margin-right: 10px; font-size: 1.2rem; }   </style>
+        .tg-link i { margin-right: 10px; font-size: 1.2rem; }
+    </style>
 </head>
 <body>
 
@@ -62,9 +65,7 @@
                 <h4>Drag & Drop or Click</h4>
                 <p class="text-muted">Supports JPG, PNG (Max 5MB)</p>
                 <input type="file" id="file-input" hidden accept="image/*">
-            </div> <a href="https://t.me/ваш_ник" class="tg-link" target="_blank">
-    <i class="fab fa-telegram"></i> Написать в Telegram
-</a>
+            </div>
 
             <div class="result-box text-center" id="result-box">
                 <img id="preview-img" src="" alt="Food Preview">
@@ -74,6 +75,12 @@
                 </div>
                 <p id="recommendation" class="text-secondary"></p>
                 <button class="btn btn-outline-light btn-sm" onclick="location.reload()">Reset</button>
+            </div>
+
+            <div class="tg-link-container">
+                <a href="https://t.me/KosmosHardoxxx" class="tg-link" target="_blank">
+                    <i class="fab fa-telegram"></i> Связаться с нами
+                </a>
             </div>
         </div>
     </div>
@@ -95,14 +102,12 @@
         if (file) {
             const reader = new FileReader();
             reader.onload = function(e) {
-                // UI changes
                 dropArea.style.display = 'none';
                 resultBox.style.display = 'block';
                 previewImg.src = e.target.result;
-                
                 simulateAI();
             }
-            reader.readAsDataURL(file);
+            reader.readAsAsDataURL(file);
         }
     });
 
@@ -120,15 +125,12 @@
     }
 
     function showResult() {
-        // In a real app, you would call your Python API here
         statusText.innerHTML = 'Status: <span class="status-ready">READY TO EAT</span>';
         progressBar.classList.remove('progress-bar-animated');
         progressBar.style.backgroundColor = '#4ade80';
         recommendation.innerText = "The Maillard reaction is optimal. Surface texture indicates perfect doneness.";
     }
 </script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</body <a href="https://t.me/KosmosHardoxxx" class="tg-button" target="_blank">
-  <i class="fab fa-telegram-plane"></i> Связаться в Telegram
-</a>>
+
+</body>
 </html>
