@@ -2,52 +2,20 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой восстановленный сайт</title>
+    <title>Детектор Еды: Сырое vs Готовое 🍲</title>
     <style>
-        /* Стили для фона — он теперь не удаляет контент, а лежит под ним */
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            /* Замените ссылку ниже на ваш фон */
-            background: url('ВАША_ССЫЛКА_НА_ФОН') no-repeat center center fixed; 
+            background-image: url('https://source.unsplash.com/1600x900/?food,cooking,ingredients'); /* Фон с едой */
             background-size: cover;
-            color: white; /* Цвет текста */
-        }
-
-        /* Контейнер для вашего контента */
-        .content-wrapper {
-            background: rgba(0, 0, 0, 0.5); /* Полупрозрачный слой, чтобы текст читался */
+            background-position: center;
+            color: #fff; /* Белый текст для читаемости на фоне */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        header, main, footer {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="content-wrapper">
-        <header>
-            <h1>Название вашего сайта</h1>
-            <nav>Здесь было ваше меню (Главная, О нас, Контакты)</nav>
-        </header>
-
-        <main>
-            <h2>Добро пожаловать обратно!</h2>
-            <p>Вставьте сюда ваш текст, который пропал. Если это был лендинг, добавьте свои блоки здесь.</p>
-        </main>
-
-        <footer>
-            <p>&copy; 2026 Ваш Сайт</p>
-        </footer>
-    </div>
-
-</body>
-</html>
+            text-shadow: 2px
