@@ -2,104 +2,35 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Детектор Еды: Сырое vs Готовое 🍲</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-image: url('https://source.unsplash.com/1600x900/?food,cooking,ingredients'); /* Фон с едой */
-            background-size: cover;
-            background-position: center;
-            color: #fff; /* Белый текст для читаемости на фоне */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Тень для текста */
-        }
-        .container {
-            background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон для контента */
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            max-width: 90%;
-            width: 600px;
-        }
-        h1 {
-            font-size: 2.8em;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-        .upload-section {
-            border: 2px dashed rgba(255, 255, 255, 0.7);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        input[type="file"] {
-            color: #fff;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            border: none;
-            margin-bottom: 15px;
-        }
-        button[type="submit"] {
-            background-color: #4CAF50; /* Зеленая кнопка */
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
-        }
-        button[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        .telegram-button {
-            background-color: #0088cc; /* Синий цвет Telegram */
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-        .telegram-button:hover {
-            background-color: #007bb5;
-        }
-        .emojis {
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-    </style>
+    <title>Raw or Cooked? - Проверь еду</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Детектор Еды: Сырое vs Готовое 🍲🍳🍖</h1>
-        <p class="emojis">✨🥑🥩🍚🍝🥗✨</p>
-        <p>Загрузите фотографию, чтобы узнать, сырая она или готовая!</p>
 
-        <div class="upload-section">
-            <form action="/predict" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-                <button type="submit">Проверить еду! 🧐</button>
-            </form>
+    <nav>
+        <h1>🥩 Raw or Cooked?</h1>
+        <div class="tabs">
+            <button onclick="showTab('home')">Главная</button>
+            <button onclick="showTab('upload')">Добавить Видео</button>
         </div>
+    </nav>
 
-        <a href="https://t.me/KosmosHardoxxx" target="_blank" class="telegram-button">Написать мне в Telegram 👋</a>
-    </div>
+    <section id="home" class="tab-content">
+        <h2>Видео от игроков</h2>
+        <div id="videoContainer" class="video-grid">
+            <p>Загрузка видео...</p>
+        </div>
+    </section>
+
+    <section id="upload" class="tab-content" style="display:none;">
+        <h2>Поделись своим кулинарным шедевром</h2>
+        <div class="upload-form">
+            <input type="text" id="videoUrl" placeholder="Вставь ссылку на видео (YouTube/MP4)">
+            <input type="text" id="foodName" placeholder="Название блюда (например: Сырой стейк)">
+            <button onclick="addVideo()">Опубликовать</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
