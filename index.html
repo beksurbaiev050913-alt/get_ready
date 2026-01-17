@@ -2,35 +2,29 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Raw or Cooked? - Проверь еду</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Food AI 🌸</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
 </head>
 <body>
 
+<header>
+    <h1>🍱 Food AI</h1>
     <nav>
-        <h1>🥩 Raw or Cooked?</h1>
-        <div class="tabs">
-            <button onclick="showTab('home')">Главная</button>
-            <button onclick="showTab('upload')">Добавить Видео</button>
-        </div>
+        <a href="index.html">Главная</a>
+        <a href="projects.html">Мои проекты</a>
     </nav>
+</header>
 
-    <section id="home" class="tab-content">
-        <h2>Видео от игроков</h2>
-        <div id="videoContainer" class="video-grid">
-            <p>Загрузка видео...</p>
-        </div>
-    </section>
+<main>
+    <h2>Загрузи фото еды</h2>
+    <input type="file" accept="image/*" id="imageUpload">
+    <p id="result">Ожидание изображения...</p>
+</main>
 
-    <section id="upload" class="tab-content" style="display:none;">
-        <h2>Поделись своим кулинарным шедевром</h2>
-        <div class="upload-form">
-            <input type="text" id="videoUrl" placeholder="Вставь ссылку на видео (YouTube/MP4)">
-            <input type="text" id="foodName" placeholder="Название блюда (например: Сырой стейк)">
-            <button onclick="addVideo()">Опубликовать</button>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
+<script src="js/ai.js"></script>
 </body>
 </html>
