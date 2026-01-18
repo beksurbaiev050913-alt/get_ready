@@ -3,7 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Food AI 🌸</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff8f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background: #ffb347;
+            padding: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            margin-top: 40px;
+        }
+
+        video {
+            margin-top: 20px;
+            max-width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
 
     <!-- TensorFlow.js -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
@@ -20,11 +57,34 @@
 </header>
 
 <main>
-    <h2>Загрузи фото еды</h2>
-    <input type="file" accept="машинки.mp4" id="imageUpload">
-    <p id="result">Ожидание изображения...</p>
+    <h2>Загрузи фото или видео еды</h2>
+
+    <input type="file" accept="image/*,video/*" id="mediaUpload">
+
+    <p id="result">Ожидание файла...</p>
+
+    <video id="videoPlayer" controls style="display:none;"></video>
 </main>
 
-<script src="js/ai.js"></script>
+<script>
+const upload = document.getElementById('mediaUpload');
+const video = document.getElementById('videoPlayer');
+const result = document.getElementById('result');
+
+upload.addEventListener('change', () => {
+    const file = upload.files[0];
+    if (!file) return;
+
+    if (file.type.startsWith('video/')) {
+        video.src = URL.createObjectURL(file);
+        video.style.display = 'block';
+        result.textContent = 'Видео загружено';
+    } else {
+        result.textContent = 'Пожалуйста, выберите видео';
+        video.style.display = 'none';
+    }
+});
+</script>
+
 </body>
 </html>
