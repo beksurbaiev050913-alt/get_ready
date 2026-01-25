@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Project</title>
+    <title>My Projects</title>
 
     <style>
         body {
@@ -28,13 +28,21 @@
             margin: 0;
             font-size: 2.5em;
             letter-spacing: 1px;
+            text-transform: capitalize;
         }
 
         main {
             padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-            flex: 1; /* Pushes footer to bottom */
+            max-width: 1100px; /* Wider to allow side-by-side cards */
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        /* The Grid Container */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .card {
@@ -42,70 +50,87 @@
             border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
 
         .card video {
             width: 100%;
-            display: block;
+            aspect-ratio: 16 / 9; /* Keeps all videos the same size */
+            object-fit: cover;
             background: #000;
         }
 
         .card-content {
             padding: 25px;
             text-align: center;
+            flex-grow: 1;
         }
 
         .card h3 {
-            margin-top: 0;
-            font-size: 1.5em;
+            margin: 0 0 10px 0;
+            font-size: 1.4em;
             color: #222;
         }
 
         .card p {
-            font-size: 1.05em;
-            line-height: 1.6;
+            font-size: 1em;
+            line-height: 1.5;
             color: #555;
+            margin: 0;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             opacity: 0.7;
             font-size: 0.9em;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            header h1 { font-size: 2em; }
+            main { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>My Project</h1>
+    <h1>My Projects</h1>
 </header>
 
 <main>
-    <div class="card">
-        <video src="машинка.mp4" controls loop muted autoplay></video>
-        <div class="card-content">
-            <h3>🚗 Машинка Project</h3>
-            <p>
-                This is a demonstration of my car project. 
-                Watch the video above to see the results in action!
-            </p>
-        </div>
-    </div>
+    <div class="project-grid">
+        
         <div class="card">
-        <video src="видосик про кнб.mp4" controls loop muted autoplay></video>
-        <div class="card-content">
-            <h3>🚗 Машинка Project</h3>
-            <p>
-                This is a demonstration of my car project. 
-                Watch the video above to see the results in action!
-            </p>
+            <video src="машинка.mp4" controls loop muted autoplay></video>
+            <div class="card-content">
+                <h3>🚗 Машинка Project</h3>
+                <p>
+                    A detailed look at my car simulation/model project. 
+                    Watch the demo to see it in action.
+                </p>
+            </div>
         </div>
+
+        <div class="card">
+            <video src="видосик про кнб.mp4" controls loop muted autoplay></video>
+            <div class="card-content">
+                <h3>🎮 Rock Paper Scissors</h3>
+                <p>
+                    This project showcases a game implementation. 
+                    Check out the gameplay mechanics in this video.
+                </p>
+            </div>
+        </div>
+
     </div>
 </main>
 
